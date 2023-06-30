@@ -1,0 +1,72 @@
+@import './variables.scss';
+@import './animations.scss';
+
+// Bootstrap overwrite
+.navbar-toggler {
+  background-color: white;
+}
+a {
+  text-decoration: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: center;
+  justify-items: center;
+}
+
+
+// Custom style
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: $bg;
+}
+
+#app {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 1fr;
+}
+
+header {
+  z-index: 2;
+}
+
+.wrapper {
+  color: white;
+  font-size: 1.5rem;
+  width: 400px;
+  animation: stack cubic-bezier(.46,.29,0,1.24) 1 backwards  120ms;
+}
+
+.stack {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.stack span {
+  font-weight: bold;
+  grid-row-start: 1;
+  grid-column-start: 1;
+  font-size: 4rem;
+  --stack-height: calc(100% / var(--stacks) - 1px);
+  --inverse-index: calc(calc(var(--stacks) - 1) - var(--index));
+  --clip-top: calc(var(--stack-height) * var(--index));
+  --clip-bottom: calc(var(--stack-height) * var(--inverse-index));
+  clip-path: inset(var(--clip-top) 0 var(--clip-bottom) 0);
+  animation: stack 340ms cubic-bezier(.46,.29,0,1.24) 1 backwards calc(var(--index) * 120ms), glitch 1s ease infinite 1s alternate-reverse;
+}
+
+.stack span:nth-child(odd) { --glitch-translate: 8px; }
+.stack span:nth-child(even) { --glitch-translate: -8px; }
+
+.social-media-list {
+  list-style: none;
+}
+
+.logo {
+  width: 38px;
+}

@@ -38,7 +38,7 @@ header, main,body, footer {
 .wrapper {
   color: white;
   font-size: 1.5rem;
-  width: 400px;
+  max-width: 400px;
   animation: stack cubic-bezier(.46,.29,0,1.24) 1 backwards  120ms;
 }
 

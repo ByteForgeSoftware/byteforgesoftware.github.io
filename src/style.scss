@@ -21,19 +21,10 @@ a {
 // Custom style
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Space Grotesk', sans-serif !important;
   background-color: $bg;
 }
 
-#app {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  grid-template-columns: 1fr;
-}
-
-header, main,body, footer {
-  z-index: 2;
-}
 
 .wrapper {
   color: white;

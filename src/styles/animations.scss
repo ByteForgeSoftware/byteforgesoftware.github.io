@@ -1,31 +1,5 @@
-@import './variables.scss';
-@import './animations.scss';
 
-// Bootstrap overwrite
-.navbar-toggler {
-  background-color: white;
-}
-a {
-  text-decoration: none;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items:center;
-  justify-content: center;
-  justify-items: center;
-}
-
-
-// Custom style
-
-body {
-  font-family: 'Space Grotesk', sans-serif !important;
-  background-color: $bg;
-}
-
-
+// Glitch animation
 .wrapper {
   color: white;
   font-size: 1.5rem;
@@ -54,14 +28,33 @@ body {
 .stack span:nth-child(odd) { --glitch-translate: 8px; }
 .stack span:nth-child(even) { --glitch-translate: -8px; }
 
-.social-media-list {
-  list-style: none;
+@keyframes stack {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%);
+    text-shadow: -2px 3px 0 red, 2px -3px 0 rgb(69, 69, 69);
+  };
+  60% {
+    opacity: 0.5;
+    transform: translateX(50%);
+  }
+  80% {
+    transform: none;
+    opacity: 1;
+    text-shadow: 2px -3px 0 red, -2px 3px 0 rgb(69, 69, 69);
+  }
+  100% {
+    text-shadow: none;
+  }
 }
 
-.logo {
-  width: 38px;
-}
-
-.tsparticles {
-  opacity: 0.5;
+@keyframes glitch {
+  0% {
+    text-shadow: -2px 3px 0 red, 2px -3px 0 rgb(69, 69, 69);
+    transform: translate(var(--glitch-translate));
+  }
+  2% {
+    text-shadow: 2px -3px 0 red, -2px 3px 0 rgb(69, 69, 69);
+  }
+  4%, 100% {  text-shadow: none; transform: none; }
 }

@@ -1,6 +1,6 @@
+import './styles/theme.scss'
 import 'bootstrap';
-import 'bootstrap/scss/bootstrap.scss';
-import './style.scss'
+import {generateCarouselClients} from './carousel';
 
 const app = document.querySelector<HTMLDivElement>('#app');
 if(app){
@@ -9,4 +9,5 @@ if(app){
   if(dateFooter){
     dateFooter.innerHTML = today.getFullYear().toString();
   }
+  generateCarouselClients();
 }

@@ -1,0 +1,18 @@
+@import './variables.scss';
+@import 'bootstrap/scss/bootstrap.scss';
+@import './animations.scss';
+
+body {
+  font-family: 'Space Grotesk', sans-serif !important;
+}
+
+// Needed for some reason for header navlink to overwrite :hover state
+a{
+  &:hover {
+    color: darkgray !important;
+  }
+}
+
+ul {
+  list-style: none !important;
+}

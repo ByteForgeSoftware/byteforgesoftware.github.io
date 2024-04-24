@@ -1,0 +1,63 @@
+// Directions map
+$directions: (
+    "t": "top",
+    "r": "right",
+    "b": "bottom",
+    "l": "left"
+);
+
+// Generate padding classes
+@each $key, $value in $directions {
+    .p-#{$key} {
+        padding-#{$value}: $padding;
+    }
+}
+
+// Padding for all sides
+.p {
+    padding: $padding;
+}
+
+// Generate margin classes
+@each $key, $value in $directions {
+    .m-#{$key} {
+        margin-#{$value}: $padding;
+    }
+}
+
+// Margin for all sides
+.m {
+    margin: $padding;
+}
+
+
+.position- {
+    &relative {
+        position: relative
+    }
+
+    &absolute {
+        position: absolute
+    }
+}
+
+.text-green {
+    color: $green;
+}
+
+
+
+// Text alignment classes
+$text-alignments: (
+    "left": left,
+    "center": center,
+    "right": right,
+    "justify": justify
+);
+
+// Generate text alignment classes
+@each $key, $value in $text-alignments {
+    .text-#{$key} {
+        text-align: $value;
+    }
+}

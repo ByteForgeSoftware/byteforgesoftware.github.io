@@ -1,76 +1,66 @@
 @import './variables.scss';
-@import './animations.scss';
+@import './helpers.scss';
 
-// Bootstrap overwrite
-.navbar-toggler {
-  background-color: white;
+body,
+html{
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding:0;
+  background: $dark;
+  color: $green;
 }
+
 a {
-  text-decoration: none;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items:center;
-  justify-content: center;
-  justify-items: center;
-}
-
-
-// Custom style
-
-body {
-  font-family: 'Roboto', sans-serif;
-  background-color: $bg;
+  color: $green;
 }
 
 #app {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  grid-template-columns: 1fr;
+  height: 100%;
+  width: 100%;
+  display: flex;
 }
 
-header, main,body, footer {
-  z-index: 2;
+canvas {
+  @media screen and (max-width:960px){
+    display: none;
+  }
+  display: block;
+  top: 0;
+  left: 0;
+  height: 100%;
+  margin: 0;
+  padding:0;
 }
 
-.wrapper {
-  color: white;
-  font-size: 1.5rem;
-  max-width: 400px;
-  animation: stack cubic-bezier(.46,.29,0,1.24) 1 backwards  120ms;
+.terminal {
+  text-wrap: wrap;
+  word-break: break-all;
+  font-family: 'Courier New', monospace;
+  color: $green; /* Classic green terminal color */
+  background-color: $dark;
+  width: fit-content;
+  font-size: 2rem;
+  @media screen and (max-width:960px) {
+    font-size: 1.5rem;
+  }
 }
 
-.stack {
-  display: grid;
-  grid-template-columns: 1fr;
+.blink {
+  animation: blink-animation 1s steps(2, start) infinite;
 }
 
-.stack span {
-  font-weight: bold;
-  grid-row-start: 1;
-  grid-column-start: 1;
-  font-size: 4rem;
-  --stack-height: calc(100% / var(--stacks) - 1px);
-  --inverse-index: calc(calc(var(--stacks) - 1) - var(--index));
-  --clip-top: calc(var(--stack-height) * var(--index));
-  --clip-bottom: calc(var(--stack-height) * var(--inverse-index));
-  clip-path: inset(var(--clip-top) 0 var(--clip-bottom) 0);
-  animation: stack 340ms cubic-bezier(.46,.29,0,1.24) 1 backwards calc(var(--index) * 120ms), glitch 1s ease infinite 1s alternate-reverse;
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
 }
 
-.stack span:nth-child(odd) { --glitch-translate: 8px; }
-.stack span:nth-child(even) { --glitch-translate: -8px; }
-
-.social-media-list {
-  list-style: none;
-}
-
-.logo {
-  width: 38px;
-}
-
-.tsparticles {
-  opacity: 0.5;
+.contact {
+  width: 100%;
+  border: 1px solid $green;
+  & td {
+    border: 1px solid $green;
+    padding: 0.5rem;
+  }
 }

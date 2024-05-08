@@ -65,7 +65,7 @@ function initTerminalEffect(): void {
 document.addEventListener('DOMContentLoaded', () => {
   initTerminalEffect();
   setupCanvas();
-  setInterval(draw, 50);
+  setInterval(draw, 25);
 });
 
 window.addEventListener('resize', setupCanvas);
